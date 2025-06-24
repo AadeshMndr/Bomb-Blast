@@ -143,7 +143,7 @@ function secondInitiation(id){
     }
     else if (id == "p4")
     {
-        duoode = false;
+        duoMode = false;
         playerNumber = 4;
         tutorialType();
     }
