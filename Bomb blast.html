@@ -20,9 +20,14 @@
     <title>Bomb Blast</title>
 </head>
 <body>
-    <div id="title">Bomb Blast</div>
-    <div id="button" type="button" onclick="initiate();">Play</div>
-    <div id="info" type="button" onclick="information();">Info</div>
+    <div id="title">💣 BOMB BLAST 💥</div>
+    <div class="button-container">
+        <div id="button" class="game-button" type="button" onclick="initiate();">🎮 PLAY</div>
+        <div id="info" class="game-button" type="button" onclick="information();">ℹ️ INFO</div>
+    </div>
+    <div class="game-content">
+        <!-- Game canvas will be inserted here by JavaScript -->
+    </div>
     <audio src="Accesory/foreverGameMusic.mp3" id="audio" loop></audio>
 </body>
 </html>

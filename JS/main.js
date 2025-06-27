@@ -45,9 +45,17 @@ function gameStart(){
 
     //setting the canvas
     ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth - 20;
-    canvas.height = window.innerHeight - 22;
+    
+    // Set canvas dimensions to use most of the viewport
+    canvas.width = window.innerWidth - 40; // Account for margins
+    canvas.height = window.innerHeight - 40; // Account for margins
     canvas.colour = "grey";
+    
+    // Ensure canvas fits in game content container if it exists
+    const gameContent = document.querySelector('.game-content');
+    if (gameContent && !gameContent.contains(canvas)) {
+        gameContent.appendChild(canvas);
+    }
 
     //setting the characters
     createCharacters();

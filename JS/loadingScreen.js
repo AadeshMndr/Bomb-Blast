@@ -51,8 +51,7 @@ function initiate(){
 
     //clearing the previous screen
     document.getElementById("title").remove();
-    document.getElementById("button").remove();
-    document.getElementById("info").remove();
+    document.querySelector(".button-container").remove();
 
     let  p = [];
 
@@ -154,11 +153,21 @@ function tutorialType(){
     //audio
     let bgMusic = document.getElementById("audio");
     bgMusic.play();
+    
+    // Add class to body for game-started state
+    document.body.classList.add('game-started');
 
     //creating the canvas
     canvas = document.createElement("canvas");
     canvas.id = "canvas";
-    document.body.appendChild(canvas);
+    
+    // Append to game content container for better layout
+    const gameContent = document.querySelector('.game-content');
+    if (gameContent) {
+        gameContent.appendChild(canvas);
+    } else {
+        document.body.appendChild(canvas);
+    }
 
     //starting the game
     gameStart();
