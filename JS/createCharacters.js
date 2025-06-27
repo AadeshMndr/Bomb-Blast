@@ -38,11 +38,11 @@ function buildMap(){
     //edges of the map
     
     //left and right border
-    border.push(new Border(-10, -10, borderThickness, canvasHeight + 20, -1));     // Left border
-    border.push(new Border(canvasWidth - borderThickness + 10, -10, borderThickness, canvasHeight + 20, -2));    // Right border
+    border.push(new Border(-borderThickness, -borderThickness, borderThickness, canvasHeight + (2 * borderThickness), -1));     // Left border
+    border.push(new Border(canvasWidth, -borderThickness, borderThickness, canvasHeight + (2 * borderThickness), -2));    // Right border
     //top and bottom
-    border.push(new Border(0, -10, canvasWidth, borderThickness, -3)); // Top border
-    border.push(new Border(0, canvasHeight - borderThickness + 10, canvasWidth, borderThickness, -4)); // Bottom border
+    border.push(new Border(-borderThickness, -borderThickness, canvasWidth + (2 * borderThickness), borderThickness, -3)); // Top border
+    border.push(new Border(-borderThickness, canvasHeight, canvasWidth + (2 * borderThickness), borderThickness, -4)); // Bottom border
 
     // Calculate center positions
     const centerX = canvasWidth * 0.5;

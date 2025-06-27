@@ -41,6 +41,11 @@ class Bomb
                 undecided = true;
                 target.underDecision = true;
                 this.onGround = false;
+                
+                // Reset instruction display for immediate feedback
+                disappear = false;
+                clearTimeout(instructionLoop);
+                instructionLoop = 0;
 
                 setTimeout(() => {
                     ctx.fillStyle = canvas.colour;

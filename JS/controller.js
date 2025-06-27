@@ -57,7 +57,7 @@ function setController(){
             attackSpot = code;
         }
         //when the screen is paused and the defender has to choose
-        if ((defendSpot.length < trys) && (defendSpot.every((guess) => event.code != guess)) && undecided && (event.code == "Numpad8" || event.code == "Numpad5" || event.code == "Numpad2" || event.code == "Numpad4" || event.code == "Numpad1" || event.code == "Numpad6" || event.code == "Numpad3" || event.code == "Digit1" || event.code == "Digit2" || event.code == "Digit3" || event.code == "Digit4" || event.code == "Digit5" || event.code == "Digit6" || event.code == "Digit8"))
+        if (undecided && (event.code == "Numpad8" || event.code == "Numpad5" || event.code == "Numpad2" || event.code == "Numpad4" || event.code == "Numpad1" || event.code == "Numpad6" || event.code == "Numpad3" || event.code == "Digit1" || event.code == "Digit2" || event.code == "Digit3" || event.code == "Digit4" || event.code == "Digit5" || event.code == "Digit6" || event.code == "Digit8"))
         {
             let code;
             if (event.code == "Digit1" || event.code == "Numpad1")
@@ -75,7 +75,11 @@ function setController(){
             else if (event.code == "Digit8" || event.code == "Numpad8")
             code = 8;
             
+            // Allow unlimited selections, will use only the last 3
             defendSpot.push(code);
+            
+            // Immediately refresh the display to show updated instructions
+            draw();
         }
     });
 }
@@ -87,7 +91,9 @@ document.addEventListener("keydown", (event) =>{
         memory.target.underDecision = false;
 
         //see if caught or hit and do the rest once
-        let caught = defendSpot.some((guess) => guess == attackSpot);
+        // Use only the last 3 selections for catching
+        let lastThreeSelections = defendSpot.slice(-trys);
+        let caught = lastThreeSelections.some((guess) => guess == attackSpot);
 
         //upon catching
         if (caught && attackSpot != "NC")
