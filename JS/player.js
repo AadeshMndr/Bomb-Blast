@@ -131,6 +131,8 @@ class Player
             this.both = false;
             this.hori = false;
             this.vert = false;
+            // Reset attack spot when player picks up bomb
+            attackSpot = "NC";
         }
 
         //determining the velocity after some probable change

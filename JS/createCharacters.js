@@ -85,14 +85,18 @@ function buildMap(){
     //around red (player 1) - top left
     const player1X = canvasWidth * 0.06;
     const player1Y = canvasHeight * 0.12;
-    border.push(new Border(player1X, player1Y + canvasHeight * 0.15, canvasWidth * 0.085, wallThickness, playerNumber + 13));
-    border.push(new Border(player1X + canvasWidth * 0.07, player1Y, wallThickness, canvasHeight * 0.15, playerNumber + 14));
+    const player1WallHeight = canvasHeight * 0.15;
+    const player1WallWidth = canvasWidth * 0.085;
+    border.push(new Border(player1X, player1Y + player1WallHeight, player1WallWidth, wallThickness, playerNumber + 13));
+    border.push(new Border(player1X + canvasWidth * 0.07, player1Y, wallThickness, player1WallHeight, playerNumber + 14));
     
     //around green (player 3) - top right
     const player3X = canvasWidth * 0.87;
-    const player3Y = canvasHeight * 0.09;
-    border.push(new Border(player3X, player3Y, wallThickness, canvasHeight * 0.18, playerNumber + 15));
-    border.push(new Border(player3X + wallThickness, player3Y + canvasHeight * 0.15, canvasWidth * 0.07, wallThickness, playerNumber + 16));
+    const player3Y = canvasHeight * 0.12; // Make consistent with player1Y
+    const player3WallHeight = canvasHeight * 0.15; // Make consistent with player1WallHeight
+    const player3WallWidth = canvasWidth * 0.085; // Make consistent with player1WallWidth
+    border.push(new Border(player3X, player3Y, wallThickness, player3WallHeight, playerNumber + 15));
+    border.push(new Border(player3X + wallThickness, player3Y + player3WallHeight, player3WallWidth, wallThickness, playerNumber + 16));
     
     //around yellow (player 4) - bottom left
     const player4X = canvasWidth * 0.045;

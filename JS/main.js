@@ -66,6 +66,44 @@ function gameStart(){
     //setting the controller
     setController();
 
+    // Add window resize handler to maintain consistent gameplay
+    window.addEventListener('resize', handleWindowResize);
+
     gameLoop = setInterval(engine, 1000/fps);
+}
+
+function handleWindowResize() {
+    // Prevent resize during active gameplay to maintain fairness
+    if (!changeTurn && gameLoop) {
+        return; // Don't resize during a player's turn
+    }
+    
+    const newWidth = window.innerWidth - 40;
+    const newHeight = window.innerHeight - 40;
+    
+    // Only resize if the change is significant (more than 50px)
+    if (Math.abs(canvas.width - newWidth) > 50 || Math.abs(canvas.height - newHeight) > 50) {
+        // Calculate ratios before changing canvas dimensions
+        const widthRatio = newWidth / canvas.width;
+        const heightRatio = newHeight / canvas.height;
+        
+        // Update canvas dimensions
+        canvas.width = newWidth;
+        canvas.height = newHeight;
+        
+        // Clear and rebuild borders with new dimensions
+        border = [];
+        buildMap();
+        
+        // Update player positions proportionally
+        player.forEach(p => {
+            p.x = p.x * widthRatio;
+            p.y = p.y * heightRatio;
+        });
+        
+        // Update bomb position
+        bomb.x = bomb.x * widthRatio;
+        bomb.y = bomb.y * heightRatio;
+    }
 }
 
