@@ -281,58 +281,161 @@ body.game-started .game-content {
     font-weight: 700;
 }
 
-#p2{
-    position: absolute;
-    top: 200px;
-    left: 180px;
-    font-size: 200px;
+/* Player selection buttons */
+#p2, #p3, #p4 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(80px, 12vw, 120px);
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 20px;
+    padding: 20px 40px;
+    margin: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
     text-align: center;
-    border: 2px solid black;
-    padding: 30px;
-    background-color: cadetblue;
+    white-space: nowrap;
+    text-shadow: 
+        0 0 10px #ff6b6b,
+        0 0 20px #ff6b6b;
 }
 
-#p3{
+#p2::before, #p3::before, #p4::before {
+    content: '';
     position: absolute;
-    top: 200px;
-    left: 530px;
-    font-size: 200px;
-    text-align: center;
-    border: 2px solid black;
-    padding: 30px;
-    background-color: cadetblue;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
 
-#p4{
-    position: absolute;
-    top: 200px;
-    left: 880px;
-    font-size: 200px;
-    text-align: center;
-    border: 2px solid black;
-    padding: 30px;
-    background-color: cadetblue;
+#p2:hover, #p3:hover, #p4:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(45deg, #7b8bff, #8a5cbf);
+    text-shadow: 
+        0 0 15px #ff6b6b,
+        0 0 25px #ff6b6b,
+        0 0 35px #ff6b6b;
 }
 
-#solo{
-    position: absolute;
-    top: 200px;
-    left: 150px;
-    font-size: 100px;
-    text-align: center;
-    border: 2px solid black;
-    padding: 30px;
-    background-color: cadetblue;
+#p2:hover::before, #p3:hover::before, #p4:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
-#duo{
-    position: absolute;
-    top: 200px;
-    left: 700px;
-    font-size: 100px;
+/* Team mode selection buttons */
+#solo, #duo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(40px, 6vw, 60px);
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border: none;
+    border-radius: 25px;
+    padding: 25px 50px;
+    margin: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    min-width: 250px;
     text-align: center;
-    border: 2px solid black;
-    padding: 30px;
-    background-color: cadetblue;
+    white-space: nowrap;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#solo::before, #duo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+#solo:hover, #duo:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(45deg, #ff7675, #fd79a8);
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+#solo:hover::before, #duo:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Container styles for player selection and team mode */
+body:has(#p2), body:has(#solo) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1200px) {
+    #p2, #p3, #p4 {
+        font-size: clamp(60px, 10vw, 80px);
+        margin: 15px;
+        min-width: 140px;
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    #p2, #p3, #p4 {
+        font-size: clamp(40px, 8vw, 60px);
+        margin: 10px;
+        min-width: 100px;
+        padding: 12px 25px;
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    #solo, #duo {
+        font-size: clamp(30px, 5vw, 45px);
+        margin: 20px;
+        min-width: 200px;
+        padding: 20px 40px;
+        display: block;
+        margin-bottom: 20px;
+    }
 }
 

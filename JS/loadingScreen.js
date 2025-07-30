@@ -51,15 +51,6 @@ function initiate(){
         p[i].id = `p${i+2}`;
         p[i].innerHTML = `${i+2}P`;
 
-        //a bit of animation for it.
-        p[i].addEventListener("mouseover", () => {
-            p[i].style.fontSize = "220px";
-        });
-        p[i].addEventListener("mouseout", () => {
-            p[i].style.fontSize = "200px";
-        });
-
-
         //checker to see what the user has clicked
         p[i].addEventListener("click", () => {
             secondInitiation(p[i].id);
@@ -89,20 +80,6 @@ function secondInitiation(id){
 
         solo.innerHTML = "Solo mode";
         duo.innerHTML = "Duo mode";
-
-        //a bit of animation
-        solo.addEventListener("mouseover", () => {
-            solo.style.fontSize = "110px";
-        });
-        duo.addEventListener("mouseover", () => {
-            duo.style.fontSize = "110px";
-        });
-        solo.addEventListener("mouseout", () => {
-            solo.style.fontSize = "100px";
-        });
-        duo.addEventListener("mouseout", () => {
-            duo.style.fontSize = "100px";
-        });
 
         //checker to see what the user has clicked
         solo.addEventListener("click", () => {
