@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="Accesory/styles.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bomb Blast - A thrilling browser-based multiplayer game" />
+    <meta name="theme-color" content="#667eea" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="Accesory/styles.css" rel="stylesheet" />
     <script src="JS/main.js"></script>
     <script src="JS/engine.js"></script>
     <script src="JS/controller.js"></script>
@@ -14,20 +18,28 @@
     <script src="JS/border.js"></script>
     <script src="JS/bomb.js"></script>
     <script src="JS/instructions.js"></script>
-    <script src="JS/loadingScreen.js"></script>  
-    
-
-    <title>Bomb Blast</title>
-</head>
-<body>
-    <div id="title">💣 BOMB BLAST 💥</div>
-    <div class="button-container">
-        <div id="button" class="game-button" type="button" onclick="initiate();">🎮 PLAY</div>
-        <div id="info" class="game-button" type="button" onclick="information();">ℹ️ INFO</div>
+    <script src="JS/loadingScreen.js"></script>
+    <title>💣 Bomb Blast - Multiplayer Game</title>
+  </head>
+  <body>
+    <div class="main-menu">
+      <div id="title">💣 BOMB BLAST 💥</div>
+      <div class="subtitle">Classic Nepali Game - Reimagined</div>
+      <div class="button-container">
+        <div id="button" class="game-button" type="button" onclick="initiate();">
+          <span class="button-icon">🎮</span>
+          <span class="button-text">PLAY</span>
+        </div>
+        <div id="info" class="game-button" type="button" onclick="information();">
+          <span class="button-icon">ℹ️</span>
+          <span class="button-text">INFO</span>
+        </div>
+      </div>
+      <div class="keyboard-hint">Press SPACE or ENTER to play • ESC for info</div>
     </div>
     <div class="game-content">
-        <!-- Game canvas will be inserted here by JavaScript -->
+      <!-- Game canvas will be inserted here by JavaScript -->
     </div>
     <audio src="Accesory/foreverGameMusic.mp3" id="audio" loop></audio>
-</body>
+  </body>
 </html>
